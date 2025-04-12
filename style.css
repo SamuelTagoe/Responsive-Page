@@ -82,7 +82,7 @@ main {
     align-items: center;
     height: 80vh;
     flex-direction: row;
-    gap: 100px; /* Increased gap between profile container and user */
+    gap: 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -93,7 +93,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
     width: 350px;
-    margin-left: 10px; /* You can adjust this for better alignment */
+    margin-left: 10px;
 }
 
 h2 {
@@ -131,7 +131,7 @@ main .user img {
 }
 
 .user {
-    margin-left: 100px; /* Increase spacing between profile and user image */
+    margin-left: 100px;
     height: 300px;
     width:  290px;
     border-radius: 50%;
@@ -139,7 +139,6 @@ main .user img {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
-/* Ensure images are responsive */
 .user img, .profile-icon img {
     max-width: 100%;
     height: auto;
@@ -158,7 +157,7 @@ section {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
-    max-width: 1200px; /* Limit the width */
+    max-width: 1200px;
     transition: grid-template-columns 0.3s ease;
 }
 
@@ -193,7 +192,6 @@ section {
     text-decoration: none;
 }
 
-/* Profile Icon Animation */
 .profile-icon {
     position: fixed;
     bottom: 20px;
@@ -218,7 +216,7 @@ section {
     height: 100%;
     border-radius: 50%;
     border: 3px solid transparent;
-    border-top: 3px solid rgb(253, 72, 72); /* Color of the spinning border */
+    border-top: 3px solid rgb(253, 72, 72);
     border-bottom: 3px solid rgb(253, 72, 72);
     animation: rotate-border 2s linear infinite;
 }
