@@ -1,0 +1,373 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+}
+
+:root {
+    --accent: rgb(253, 72, 72);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 20px 50px;
+}
+
+nav .logo p {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav .logo i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: var(--accent);
+}
+
+nav .right {
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .right .algorix {
+    margin-left: 4px;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent);
+    transition: 0.1s ease-in-out;
+    font-size: 20px;
+    margin-right: 25px;
+}
+
+nav .right .algorix:hover {
+    color: var(--accent);
+}
+
+nav .right a.active {
+    background-color: var(--accent);
+    color: white;
+    border-radius: 5px;
+    transition: 0.1s ease-in-out;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+nav .right a.active:hover {
+    border: 1px solid transparent;
+}
+
+nav .right .logout {
+    color: var(--accent);
+    font-size: 20px;
+}
+
+
+/* Sidebar base styles */
+.sidebar {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    will-change: transform, opacity;
+}
+
+.sidebar .side {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 24px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.2s;
+    position: relative;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: 
+        opacity 0.3s ease, 
+        transform 0.3s ease,
+        display 0.3s step-end;
+}
+
+.sidebar .hamburger {
+    display: flex !important; /* Force show the hamburger */
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Hamburger menu icon styles */
+.hamburger .show-icon {
+    display: block;
+}
+.hamburger .hide-icon {
+    display: none;
+}
+
+.sidebar.active .hamburger i {
+    transform: rotate(90deg);
+}
+
+/* When sidebar is active, switch icons */
+.sidebar.active .hamburger .show-icon {
+    display: none;
+}
+.sidebar.active .hamburger .hide-icon {
+    display: block;
+}
+
+/* Improved hover effects */
+.hamburger {
+    transition: 
+        background 0.3s ease, 
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+}
+
+.hamburger:hover {
+    background: var(--accent) !important;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.sidebar.active .side {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 
+        opacity 0.3s ease 0.1s, 
+        transform 0.3s ease 0.1s,
+        display 0.3s step-start;
+}
+
+.sidebar .side:hover {
+    background: var(--accent);
+    transform: scale(1.1);
+    color: black;
+}
+
+.sidebar a::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Hamburger icon animation */
+.hamburger i {
+    transition: transform 0.3s ease;
+}
+
+.sidebar a:hover::after {
+    opacity: 1;
+}
+
+
+.logo, .right {
+    padding: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: row;
+    gap: 100px; /* Increased gap between profile container and user */
+}
+
+.profile-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    width: 350px;
+    margin-left: 10px; /* You can adjust this for better alignment */
+}
+
+h2 {
+    text-align: center;
+    color: var(--accent);
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 16px;
+    border-bottom: 1px solid var(--accent);
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.profile-info:last-child {
+    border-bottom: none;
+}
+
+label {
+    font-weight: bold;
+    color: white;
+}
+
+span {
+    color: white;
+}
+
+main .user img {
+    height: 300px;
+    width:  290px;
+    border-radius: 50%;
+}
+
+.user {
+    margin-left: 100px; /* Increase spacing between profile and user image */
+    height: 300px;
+    width:  290px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+section {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px; /* Limit the width */
+}
+
+.grid-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.grid-item:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+    color: white;
+}
+
+.grid-item:hover i {
+    color: black;
+}
+
+.grid-item i {
+    font-size: 40px;
+    color: var(--accent);
+}
+
+.grid-item a {
+    font-size: 16px;
+    color: white;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+/* Profile Icon Animation */
+.profile-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    border: 3px solid transparent;
+    box-shadow: 0 0 6px rgb(253, 72, 72, 0.6);
+}
+
+.spin::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top: 3px solid rgb(253, 72, 72); /* Color of the spinning border */
+    border-bottom: 3px solid rgb(253, 72, 72);
+    animation: rotate-border 2s linear infinite;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profile-border {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    animation: rotate-border 2s linear infinite;
+}
+
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}

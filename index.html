@@ -1,0 +1,106 @@
+<!-- BASE TEMPLATE FOR THE WEB DESIGN -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATU - iCampus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    
+    <aside class="sidebar">
+        <a class="hamburger" data-title="Open">
+            <i class="fa-solid fa-bars"></i>
+        </a>
+        <a class="side" href="" data-title="Home"><i class="fas fa-home"></i></a>
+        <a class="side" href="" data-title="Academics"><i class="fas fa-book"></i></a>
+        <a class="side" href="" data-title="Profile"><i class="fas fa-user"></i></a>
+        <a class="side" href="" data-title="Finance"><i class="fas fa-coins"></i></a>
+        <a class="side" href="" data-title="Support"><i class="fas fa-info-circle"></i></a>
+        <a class="side" href="" data-title="Settings"><i class="fa-solid fa-gear"></i></a>
+    </aside>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <p><i class="fas fa-university"></i> iCAMPUS</p>
+            </div>
+            <div class="right">
+                <p>Built and Powered by <a href="" class="algorix">AlgoriX</a></p>
+                <a href="/index.html" class="logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    </main>
+
+    <div class="profile-icon" onclick="window.location.href='/Views/AI/ai-messaging.html'">
+        <div class="spin">    
+            <div class="profile-border"></div>
+            <img src="app.png" alt="Profile Icon">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sidebar = document.querySelector('.sidebar');
+            const hamburger = document.querySelector('.hamburger');
+            const hamburgerIcon = hamburger.querySelector('i');
+            
+            hamburger.addEventListener('click', function(e) {
+                e.preventDefault();
+                sidebar.classList.toggle('active');
+                
+                // Toggle between hamburger and close icons
+                if (sidebar.classList.contains('active')) {
+                    hamburgerIcon.classList.remove('fa-bars');
+                    hamburgerIcon.classList.add('fa-xmark');
+                    this.setAttribute('data-title', 'Close');
+                } else {
+                    hamburgerIcon.classList.remove('fa-xmark');
+                    hamburgerIcon.classList.add('fa-bars');
+                    this.setAttribute('data-title', 'Menu');
+                }
+            });
+            
+            // Set Active Side Bar Nav (your existing code)
+            let links = document.querySelectorAll(".sidebar a.side");
+            let currentUrl = window.location.pathname;
+            
+            links.forEach(link => {
+                if (link.getAttribute("href") === currentUrl) {
+                    links.forEach(l => l.classList.remove("active"));
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const icon = this.querySelector('i');
+            const isOpening = !sidebar.classList.contains('active');
+            
+            // Animate icon first
+            if (isOpening) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+                this.setAttribute('data-title', 'Close');
+                icon.style.transform = 'rotate(90deg)';
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+                this.setAttribute('data-title', 'Menu');
+                icon.style.transform = 'rotate(0deg)';
+            }
+            
+            // Toggle sidebar after slight delay
+            setTimeout(() => {
+                sidebar.classList.toggle('active');
+            }, 50);
+        });
+    </script>
+</body>
+</html>
