@@ -1,0 +1,103 @@
+/* media-queries.css - Updated Version */
+/* Mobile First Adjustments */
+
+/* Hide right content in header on mobile */
+@media (max-width: 767px) {
+    header nav .right {
+      display: none;
+    }
+    
+    .sidebar {
+        top: 110px;
+    }
+
+    .user {
+        display: none
+    }
+    
+    /* Create footer for mobile */
+    body {
+      position: relative;
+      padding-bottom: 60px; /* Space for footer */
+    }
+    
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1e1e1e;
+      padding: 10px 20px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+    
+    footer .mobile-footer-content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .mobile-footer-content .algorix {
+        text-decoration: none;
+        font-weight: bold;
+        border-bottom: 2px solid var(--accent);
+        transition: 0.1s ease-in-out;
+        font-size: 20px;
+        margin-right: 25px;
+        color: white;
+    }
+
+    .mobile-footer-content .algorix:hover {
+        color: var(--accent);
+    }
+
+    .mobile-footer-content .logout {
+        color: var(--accent);
+        font-size: 20px;
+        margin-right: 50px;
+    }
+    
+    /* Adjust main content spacing */
+    main {
+      margin-bottom: 20px;
+    }
+    
+    /* Profile icon adjustment */
+    .profile-icon {
+      bottom: 70px; /* Above the footer */
+    }
+  }
+  
+  /* Show header right content and hide footer on larger screens */
+  @media (min-width: 768px) {
+    header nav .right {
+      display: flex;
+    }
+    
+    footer {
+      display: none;
+    }
+    
+    /* Reset profile icon position */
+    .profile-icon {
+      bottom: 20px;
+    }
+  }
+  
+  /* Rest of your existing media queries... */
+
+
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

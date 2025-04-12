@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATU - iCampus</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="media-quries.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     
     <aside class="sidebar">
-        <a class="hamburger" data-title="Open">
-            <i class="fa-solid fa-bars"></i>
-        </a>
-        <a class="side" href="" data-title="Home"><i class="fas fa-home"></i></a>
-        <a class="side" href="" data-title="Academics"><i class="fas fa-book"></i></a>
-        <a class="side" href="" data-title="Profile"><i class="fas fa-user"></i></a>
-        <a class="side" href="" data-title="Finance"><i class="fas fa-coins"></i></a>
-        <a class="side" href="" data-title="Support"><i class="fas fa-info-circle"></i></a>
-        <a class="side" href="" data-title="Settings"><i class="fa-solid fa-gear"></i></a>
+        <div class="sidebar-inner">
+            <a class="hamburger" data-title="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+            <div class="sidebar-links">
+                <a class="side" href="" data-title="Home"><i class="fas fa-home"></i></a>
+                <a class="side" href="" data-title="Academics"><i class="fas fa-book"></i></a>
+                <a class="side" href="" data-title="Profile"><i class="fas fa-user"></i></a>
+                <a class="side" href="" data-title="Finance"><i class="fas fa-coins"></i></a>
+                <a class="side" href="" data-title="Support"><i class="fas fa-info-circle"></i></a>
+                <a class="side" href="" data-title="Settings"><i class="fa-solid fa-gear"></i></a>
+            </div>
+        </div>
     </aside>
 
     <header>
@@ -32,11 +37,59 @@
                 <p>Built and Powered by <a href="" class="algorix">AlgoriX</a></p>
                 <a href="/index.html" class="logout"><i class="fas fa-sign-out-alt"></i></a>
             </div>
+            <div class="logo-profile">
+                <img src="/Images/Juice.jpeg" alt="">
+            </div>
         </nav>
     </header>
 
     <main>
+        <div class="profile-outter">
+            <div class="profile-container">
+                <h2>Student Profile</h2>
+                <div class="profile-info">
+                    <label>Name :</label> <span>Samuel Tagoe</span>
+                </div>
+                <div class="profile-info">
+                    <label>ID :</label> <span>01234792B</span>
+                </div>
+                <div class="profile-info">
+                    <label>Email :</label> <span>jhay@gmail.com</span>
+                </div>
+                <div class="profile-info">
+                    <label>Programme :</label> <span>B.Tech Computer Science</span>
+                </div>
+                <div class="profile-info">
+                    <label>Level :</label> <span>200</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="user">
+            <img src="/Images/Juice.jpeg" alt="">
+        </div>
     </main>
+
+    <section>
+        <div class="grid-container">
+            <div class="grid-item"><i class="fas fa-registered"></i><p><a href="/Views/Academics/register.html">Register</a></p></div>
+            <div class="grid-item"><i class="fas fa-redo-alt"></i><p><a href="/">Resit</a></p></div>
+            <div class="grid-item"><i class="fas fa-info-circle"></i><p><a href="general-info.html">General Info</a></p></div>
+            <div class="grid-item"><i class="fas fa-chalkboard-teacher"></i><p><a href="/Views/Academics/classes.html">Classes</a></p></div>
+            <div class="grid-item"><i class="fas fa-calendar-alt"></i><p><a href="/Views">Time Table</a></p></div>
+            <div class="grid-item"><i class="fas fa-wallet"></i><p><a href="/Views/Finance/finance.html">My Finance</a></p></div>
+            <div class="grid-item"><i class="fas fa-bullhorn"></i><p><a href="/Views">Notice Board</a></p></div>
+            <div class="grid-item"><i class="fas fa-book"></i><p><a href="/Views/Academics/library.html">My Library</a></p></div>
+            <div class="grid-item"><i class="fas fa-poll"></i><p><a href="/Views/Profile/lecturer-eval.html">Lecturer Evaluation</a></p></div>
+            <div class="grid-item"><i class="fas fa-comment-dots"></i><p><a href="/Views/Support/support.html">My Suggestion</a></p></div>
+            <div class="grid-item"><i class="fas fa-file-alt"></i><p><a href="/Views/Finance/application.html">My Application</a></p></div>
+            <div class="grid-item"><i class="fas fa-chair"></i><p><a href="/">My Seat Number</a></p></div>
+            <div class="grid-item"><i class="fas fa-cogs"></i><p><a href="/">My COGs</a></p></div><!-- Cumulative Outstanding Grades Summary -->
+            <div class="grid-item"><i class="fas fa-folder-open"></i><p><a href="/Views/Academics/reports.html">My Reports</a></p></div>
+            <div class="grid-item"><i class="fas fa-credit-card"></i><p><a href="/">Payments</a></p></div>
+            <div class="grid-item"><i class="fas fa-question-circle"></i><p><a href="/Views/Support/help-manual.html">Help Manual</a></p></div>
+        </div>
+    </section>
 
     <div class="profile-icon" onclick="window.location.href='/Views/AI/ai-messaging.html'">
         <div class="spin">    
@@ -45,62 +98,13 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sidebar = document.querySelector('.sidebar');
-            const hamburger = document.querySelector('.hamburger');
-            const hamburgerIcon = hamburger.querySelector('i');
-            
-            hamburger.addEventListener('click', function(e) {
-                e.preventDefault();
-                sidebar.classList.toggle('active');
-                
-                // Toggle between hamburger and close icons
-                if (sidebar.classList.contains('active')) {
-                    hamburgerIcon.classList.remove('fa-bars');
-                    hamburgerIcon.classList.add('fa-xmark');
-                    this.setAttribute('data-title', 'Close');
-                } else {
-                    hamburgerIcon.classList.remove('fa-xmark');
-                    hamburgerIcon.classList.add('fa-bars');
-                    this.setAttribute('data-title', 'Menu');
-                }
-            });
-            
-            // Set Active Side Bar Nav (your existing code)
-            let links = document.querySelectorAll(".sidebar a.side");
-            let currentUrl = window.location.pathname;
-            
-            links.forEach(link => {
-                if (link.getAttribute("href") === currentUrl) {
-                    links.forEach(l => l.classList.remove("active"));
-                    link.classList.add("active");
-                }
-            });
-        });
+    <footer>
+        <div class="mobile-footer-content">
+          <p>Built and Powered by <a href="" class="algorix">AlgoriX</a></p>
+          <a href="/index.html" class="logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </footer>
 
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const icon = this.querySelector('i');
-            const isOpening = !sidebar.classList.contains('active');
-            
-            // Animate icon first
-            if (isOpening) {
-                icon.classList.replace('fa-bars', 'fa-xmark');
-                this.setAttribute('data-title', 'Close');
-                icon.style.transform = 'rotate(90deg)';
-            } else {
-                icon.classList.replace('fa-xmark', 'fa-bars');
-                this.setAttribute('data-title', 'Menu');
-                icon.style.transform = 'rotate(0deg)';
-            }
-            
-            // Toggle sidebar after slight delay
-            setTimeout(() => {
-                sidebar.classList.toggle('active');
-            }, 50);
-        });
-    </script>
+   <script src="script.js"></script>
 </body>
 </html>
